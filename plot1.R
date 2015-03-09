@@ -11,13 +11,20 @@ class(data2$timestamp)
 data2$Sub_metering_1 <- as.numeric(data2$Sub_metering_1)
 data2$Sub_metering_2 <- as.numeric(data2$Sub_metering_2)
 data2$Sub_metering_3 <- as.numeric(data2$Sub_metering_3)
+data2$Voltage <- as.numeric(data2$Voltage)
+data2$Global_reactive_power <- as.numeric(data2$Global_reactive_power)
+
 class(data2$Sub_metering_1)
 class(data2$Sub_metering_2)
 class(data2$Sub_metering_3)
-
-data2$Voltage <- as.numeric(data2$Voltage)
 class(data2$Voltage)
-
-data2$Global_reactive_power <- as.numeric(data2$Global_reactive_power)
 class(data2$Global_reactive_power)
 
+#plot the chart
+png("plot1.png", width = 480, height = 480)
+#create plot 1 histogram of Global active power
+data2$Global_active_power <- as.numeric(data2$Global_active_power)
+class(data2$Global_active_power)
+#plot histogram
+hist(data2$Global_active_power, col = "red", main = "Global Active Power", xlab = "Global Active Power (kilowatts)")
+dev.off() 
